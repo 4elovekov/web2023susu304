@@ -37,15 +37,6 @@ h3 {
     text-align: left;
 }
 
-/* Container */
-
-/*.container {
-    width: 1104px;
-    display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(12, 8.33%);
-}*/
-
 /* Header */
 
 .header {
