@@ -1,0 +1,238 @@
+:root {
+    --bg-color: #e4f9e4; /* Нежно-зеленый */
+    --text-color: #1c1b1b;
+    --container-bg-color: #aedbad; /* Светло-зеленый */
+    --post-bg-color: #c8e0c8; /* Нежно-зеленый */
+    --post-hover-bg-color: #acc4ac; /* Светло-зеленый */
+}
+
+.dark-theme {
+    --bg-color: #0b380b; /* Темно-зеленый */
+    --text-color: #d9c9cb;
+    --container-bg-color: #032403; /* Черно-зеленый */
+    --post-bg-color: #0a2f0a; /* Темно-зеленый */
+    --post-hover-bg-color: #0c340c; /* Черно-зеленый */
+}
+
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+    margin: 20px auto;
+    background-color: var(--container-bg-color);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--text-color);
+}
+
+
+.posts-list, .important-posts-list {
+    margin-top: 0.5em;
+    padding: 1em 3em;
+    text-align: left;
+}
+
+#main-title{
+    font-size: 3em;
+    margin:  0 0 0.2em 0;
+}
+
+.post-title{
+    display: flex;
+    margin-right: auto;
+    margin-left: 1em;
+    margin-bottom: 0;
+}
+
+/* Кнопка создания поста */
+#openCreatePostModal {
+    padding: 1em 4em;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 25%;
+}
+
+/* Кнопка смены темы */
+#toggleThemeBtn {
+    background-color: orange;
+    position: fixed;
+    top: 2em;
+    right: 9em;
+    padding: 1em 1.2em;
+    border-radius: 0.6em;
+    border: 0;
+    height: 3em;
+    cursor: pointer;
+}
+
+button{
+    border: 0;
+    font-size: 16px;
+}
+button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Стили для постов */
+.post {
+    background-color: var(--post-bg-color);
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.post:hover {
+    background-color: var(--post-hover-bg-color);
+}
+
+/* Стили для лоадера */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    display: none; /* Начально скрыт */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.add-important-btn, .remove-important-btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.add-important-btn {
+    background-color: #d99610;
+    color: black;
+}
+
+.remove-important-btn {
+    background-color: #221f1f;
+    color: white;
+}
+
+.delete-btn{
+    padding: 10px 30px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 10px;
+}
+
+.btns-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Стили для модального окна */
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+}
+
+/* Стили для кнопки закрытия */
+.close {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 40px;
+    color: #888;
+}
+
+/* Стили для заголовка */
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Стили для формы */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для меток и полей ввода */
+.modal-content label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea,
+.modal-content select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: calc(100% - 2em);
+    background-color: var(--post-bg-color);
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+/* Стили для кнопки сохранения */
+#savePostBtn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#confirmDeleteBtn,
+#cancelDeleteBtn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#confirmDeleteBtn {
+    background-color: #dc3545;
+    margin-right: 0.5em;
+}
+
+#cancelDeleteBtn {
+    background-color: #6c757d;
+}

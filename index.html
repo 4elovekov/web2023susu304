@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Приложение</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>TODO Приложение</h1>
+    <button id="toggleThemeBtn">Сменить тему</button>
+    <button id="openCreatePostModal">Создать пост</button>
+
+    <h2 class="post-title">Важные посты:</h2>
+    <div class="important-posts-list">
+        <!-- Здесь будут отображаться важные посты -->
+    </div>
+
+    <h2 class="post-title">Обычные посты:</h2>
+    <div class="posts-list">
+        <!-- Здесь будут отображаться посты -->
+    </div>
+
+    <!-- Лоадер -->
+    <div id="loader" class="loader"></div>
+</div>
+
+<!-- Модальное окно для создания/редактирования поста -->
+<div id="postModal" class="modal">
+    <div class="modal-content">
+        <span  id="closePostModal" class="close">&times;</span>
+        <h2>Создать пост</h2>
+        <form id="postForm">
+            <!-- Форма для создания/редактирования поста -->
+            <label for="userNameSelect">Имя пользователя:</label>
+            <select id="userNameSelect"></select><br><br>
+            <label for="postTitle">Тема:</label>
+            <input type="text" id="postTitle" name="postTitle" required><br><br>
+
+            <label for="postContent">Информация:</label>
+            <textarea id="postContent" name="postContent" rows="4" required></textarea><br><br>
+
+            <button id="savePostBtn">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<!-- Модальное окно подтверждения удаления -->
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <span id="closeConfirmModal" class="close">&times;</span>
+        <h2>Подтвердите удаление</h2>
+        <p>Вы уверены, что хотите удалить этот пост?</p>
+        <div class="confirm-buttons">
+            <button id="confirmDeleteBtn">Да, удалить</button>
+            <button id="cancelDeleteBtn">Отмена</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="scripts.js"></script>
+</body>
+</html>
