@@ -436,7 +436,7 @@ h3 {
     justify-content: center;
     height: 192px;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -449,6 +449,7 @@ h3 {
     width: 1104px;
     height: 20px;
     margin-top: 20px;
+    margin-bottom: 24px;
     display: flex;
     justify-content: space-between;
 }
